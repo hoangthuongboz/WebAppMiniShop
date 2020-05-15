@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="/css/style.css" rel="stylesheet" />
+    <link href="/css/all.css" rel="stylesheet" />
+    <script src="/js/js.js"></script>
+</head>
+<body>
+    <div class="title">
+        <div class="container">
+            <div class="container_title">
+                <a href="/"><h2>SportsShop</h2></a>
+            </div>
+            <div class="container_icon" style="margin-top:20px;">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a href="/auth/signout">LogOut</a>
+                    <a href="/auth/">Welcome: @User.Identity.Name</a>
+                }
+                else
+                {
+                    <a href="/auth/signup">
+                        @*<span style="font-size: 40px; color: black;">
+                                <i class="fas fa-user-plus"></i>
+                            </span>*@
+                        SignUp
+                    </a>
+                    <a href="/auth/signin">
+                        Login
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+    <div class="copyright">
+        <div class="container">CopyRight &copy;</div>
+    </div>
+</body>
+</html>

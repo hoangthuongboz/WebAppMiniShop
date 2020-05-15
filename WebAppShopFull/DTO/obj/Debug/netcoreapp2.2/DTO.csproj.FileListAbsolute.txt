@@ -1,0 +1,9 @@
+D:\Shop\WebAppShopFull\DTO\bin\Debug\netcoreapp2.2\DTO.deps.json
+D:\Shop\WebAppShopFull\DTO\bin\Debug\netcoreapp2.2\DTO.dll
+D:\Shop\WebAppShopFull\DTO\bin\Debug\netcoreapp2.2\DTO.pdb
+D:\Shop\WebAppShopFull\DTO\obj\Debug\netcoreapp2.2\DTO.AssemblyInfoInputs.cache
+D:\Shop\WebAppShopFull\DTO\obj\Debug\netcoreapp2.2\DTO.AssemblyInfo.cs
+D:\Shop\WebAppShopFull\DTO\obj\Debug\netcoreapp2.2\DTO.dll
+D:\Shop\WebAppShopFull\DTO\obj\Debug\netcoreapp2.2\DTO.pdb
+D:\Shop\WebAppShopFull\DTO\obj\Debug\netcoreapp2.2\DTO.csprojAssemblyReference.cache
+D:\Shop\WebAppShopFull\DTO\obj\Debug\netcoreapp2.2\DTO.csproj.CoreCompileInputs.cache

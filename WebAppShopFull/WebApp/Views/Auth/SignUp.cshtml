@@ -1,0 +1,17 @@
+﻿@model  Member
+@{
+    Layout = "_LayoutLog";
+    ViewData["Title"] = "Sign Up";
+}
+
+<div asp-validation-summary="All"></div>
+<form method="post">
+    <h1>Sign Up</h1>
+    <div class="input">
+        <input placeholder="Username" type="text" asp-for="Username"  >
+        <input placeholder="Password" type="password" asp-for="Password"  >
+        <input placeholder="Email" type="email" asp-for="Email" >
+    </div>
+    <button>Sign Up</button>
+</form>
+

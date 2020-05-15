@@ -1,0 +1,12 @@
+D:\Shop\WebAppShopFull\DAL\bin\Debug\netcoreapp2.2\DAL.deps.json
+D:\Shop\WebAppShopFull\DAL\bin\Debug\netcoreapp2.2\DAL.dll
+D:\Shop\WebAppShopFull\DAL\bin\Debug\netcoreapp2.2\DAL.pdb
+D:\Shop\WebAppShopFull\DAL\bin\Debug\netcoreapp2.2\DTO.dll
+D:\Shop\WebAppShopFull\DAL\bin\Debug\netcoreapp2.2\DTO.pdb
+D:\Shop\WebAppShopFull\DAL\obj\Debug\netcoreapp2.2\DAL.csprojAssemblyReference.cache
+D:\Shop\WebAppShopFull\DAL\obj\Debug\netcoreapp2.2\DAL.AssemblyInfoInputs.cache
+D:\Shop\WebAppShopFull\DAL\obj\Debug\netcoreapp2.2\DAL.AssemblyInfo.cs
+D:\Shop\WebAppShopFull\DAL\obj\Debug\netcoreapp2.2\DAL.csproj.CopyComplete
+D:\Shop\WebAppShopFull\DAL\obj\Debug\netcoreapp2.2\DAL.dll
+D:\Shop\WebAppShopFull\DAL\obj\Debug\netcoreapp2.2\DAL.pdb
+D:\Shop\WebAppShopFull\DAL\obj\Debug\netcoreapp2.2\DAL.csproj.CoreCompileInputs.cache

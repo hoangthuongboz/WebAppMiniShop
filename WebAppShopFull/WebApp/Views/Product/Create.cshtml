@@ -1,0 +1,53 @@
+﻿@model List<Category>
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<form method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td>Category</td>
+            <td>
+                <select style="width:80%" name="CategoryId">
+                    @foreach (var item in Model)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td><input style="width:78%" type="text" name="name" /></td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td>
+                <input style="width:78%" type="number" name="Price" />
+            </td>
+        </tr>
+        <tr>
+            <td>Quantity</td>
+            <td><input style="width:78%" type="number" name="Quantity" /></td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>
+                <textarea style="width:78%" name="Description"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>Image</td>
+            <td>
+                <input type="file" name="f" />
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button style="width:60%">Save</button></td>
+        </tr>
+    </table>
+</form>

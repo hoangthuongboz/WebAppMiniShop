@@ -1,0 +1,26 @@
+﻿@model Category
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+<form method="post">
+    <table>
+        <tr>
+            <td>Name</td>
+            <td><input style="width:97%" asp-for="Name"/></td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>
+                <textarea name="description"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="padding-left:50px;"><button style="width:60%;">Save</button></td>
+        </tr>
+    </table>
+</form>
+

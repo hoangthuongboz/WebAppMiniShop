@@ -1,0 +1,29 @@
+﻿@model List<Member>
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Manager Member";
+}
+
+<h2>Manager Members</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Manage Roles</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Username</td>
+                <td>@item.Email</td>
+                <td>
+                    <a href="/member/role/@item.Id">Change Roles</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

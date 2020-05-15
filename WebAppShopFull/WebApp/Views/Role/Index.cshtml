@@ -1,0 +1,101 @@
+﻿@model List<Role>
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Manage Role";
+}
+
+<h2>Manage Roles</h2>
+
+<a href="#Create">
+    <span style="font-size: 2.5em; color: black; padding:10px;">
+        <i class="fas fa-plus-circle"></i>
+    </span>
+</a>
+
+<div class="modal" id="Create">
+    <div class="modal-dialog">
+        <div class="modal-heading">
+            Create Role
+        </div>
+        <div class="modal-body">
+            <form method="post" action="/role/create">
+                <p>
+                    <label>Name</label>
+                    <input type="text" name="name" />
+                </p>
+                <p>
+                    <button>Save</button>
+                    <a href="/Role">Close</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr data-id="@item.Id">
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td class="del">
+                <img src="/Images/edit.png" />
+            </td>
+            <td>
+                <a class="delete" href="/role/delete/@item.Id"><img src="/Images/trash.png" /></a>
+            </td>
+        </tr>
+    }
+</table>
+
+<script type="text/javascript">
+    var a = document.getElementsByClassName('del');
+    for (var i = a.length - 1; i >= 0; i--) {
+        a[i].onclick = function () {
+            var id = this.parentNode.getAttribute('data-id');
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '/role/edit/' + id);
+            xhr.send();
+            xhr.onload = function () {
+                var o = JSON.parse(xhr.response);
+                frm['id'].value = o['id'];
+                frm['name'].value = o['name'];
+                window.location = window.location + '#edit';
+            }
+        }
+    }
+</script>
+
+<div class="modal" id="edit">
+    <div class="modal-dialog">
+        <div class="modal-headding">
+            Create Role
+        </div>
+        <div class="modal-body">
+            <form name="frm" method="post" action="/role/edit">
+                <input type="hidden" name="id" />
+                <p>
+                    <label>Name</label>
+                    <input type="text" name="name" />
+                </p>
+                <p>
+                    <button>Save</button>
+                    <a href="/role">Close</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>
+@*delete?*@
+<script type="text/javascript">
+    var b = document.getElementsByClassName("delete");
+    b.click(confirmDelete);
+</script>

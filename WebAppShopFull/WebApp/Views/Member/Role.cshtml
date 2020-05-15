@@ -1,0 +1,46 @@
+﻿@model Member
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Member";
+}
+
+<p>Username: <b>@Model.Username</b></p>
+<p>Email: <b>@Model.Email</b></p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>RoleName</th>
+            <th>Checked</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Roles)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>
+                    @if (item.Checked)
+                    {
+                        <input type="checkbox" value="@item.Id" name="chk" checked="checked" />
+                    }
+                    else
+                    {
+                        <input type="checkbox" value="@item.Id" name="chk" />
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script type="text/javascript">
+    var a = document.getElementsByName('chk');
+    a.change(function () {
+        var o = { 'roleid': this.value, 'memberid': '@Model.Id' };
+        ajax.post(o, '/member/edit', function (data) {
+            //alert(data);
+        });
+    });
+</script>
+

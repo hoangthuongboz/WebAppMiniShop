@@ -1,0 +1,19 @@
+﻿@model SignInModel
+@{
+    Layout = "_LayoutLog";
+    ViewData["Title"] = "Sign In";
+}
+
+<form method="post">
+    <h1>Login</h1>
+    <div class="input">
+        <input placeholder="Username" type="text" asp-for="Usr" required="">
+        <input placeholder="Password" type="password" asp-for="Pwd" required="">
+    </div>
+    <label asp-for="Remember"></label>
+    <input type="checkbox" asp-for="Remember" checked="checked" /> 
+    <button>Login</button>
+    <a href="/auth/signup">
+        <span>Tạo mới tài khoản?</span>
+    </a>
+</form>

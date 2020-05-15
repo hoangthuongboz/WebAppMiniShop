@@ -1,0 +1,12 @@
+﻿@model List<Product>
+@using WebApp
+@addTagHelper *, WebApp
+@{
+    Layout = "_LayoutHome";
+    ViewData["Title"] = "SportsShop";
+}
+
+<pagination url="/home/index/{0}" total="@ViewBag.total" size="9" page="@ViewContext.GetId("id")"></pagination>
+<partial name="ViewCategory" model="Model" />
+
+

@@ -1,0 +1,10 @@
+﻿@model Member
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Your Profile";
+}
+
+<h1>Your Profile</h1>
+<p>Username: <b>@Model.Username</b></p>
+<p>Email: <b>@Model.Email</b></p>
+<a href="/auth/change">Change Password</a>

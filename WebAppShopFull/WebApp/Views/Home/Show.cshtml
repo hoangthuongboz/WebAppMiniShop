@@ -1,0 +1,12 @@
+﻿@model List<Category>
+@{
+    Layout = "_LayoutShopNow";
+    ViewData["Title"] = "Show";
+}
+
+@foreach (var item in Model)
+{
+    <h2 class="heading">@item.Name</h2>
+    <partial name="ViewCategory" model="item.Products" />
+}
+

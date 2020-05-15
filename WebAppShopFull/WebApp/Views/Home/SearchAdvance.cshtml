@@ -1,0 +1,9 @@
+﻿@model List<Product>
+@{
+    Layout = "_LayoutShopNow";
+    ViewData["Title"] = "SearchAdvance";
+}
+
+<h3>Tìm thấy @ViewBag.total sản phẩm!</h3>
+<partial name="ViewCategory" model="Model" />
+

@@ -1,0 +1,86 @@
+﻿@model List<Cart>
+@{
+    
+    ViewData["Title"] = "Your Cart";
+}
+
+<h2>Your Cart</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ProductName</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Amount</th>
+            <th>Image</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody id="sheet">
+        @{ int total = 0;}
+        @foreach (var item in Model)
+        {
+            total += item.Price * item.Quantity;
+            <tr>
+                <td>@item.ProductName</td>
+                <td>@item.Price</td>
+                <td data-val="@item.ProductId">
+                    <input class="qty" type="number" min="1" max="10" value="@item.Quantity" />
+                </td>
+                <th>@(item.Price * item.Quantity)</th>
+                <td>
+                    <img src="/upload/@item.ImageUrl" width="150" />
+                </td>
+                <td>
+                    <a class="del" href="/cart/delete/@item.ProductId">
+                        <img src="/images/trash.png" />
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Total</th>
+            <th colspan="2" id="total">@total</th>
+        </tr>
+    </tfoot>
+</table>
+
+@*Edit Quantity Cart*@
+<script type="text/javascript">
+    function refresh(node) {
+        var q = node.value;
+        var tr = node.parentNode.parentNode;
+        var p = parseInt(tr.cells[1].innerText);
+        tr.cells[3].innerText = q * p;
+        var s = 0;
+        for (var j = sheet.rows.length - 1; j >= 0; j--) {
+            var p = parseInt(sheet.rows[j].cells[1].innerText);
+            var q = parseInt(a[j].value);
+            s += p * q;
+        }
+        total.innerText = s;
+    }
+    var a = document.getElementsByClassName('qty');
+    for (var i = a.length - 1; i >= 0; i--) {
+        a[i].onchange = function () {
+            var q = this.value;
+            var that = this;
+            var pid = this.parentNode.getAttribute('data-val');
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/cart/edit');
+            var data = 'quantity=' + q + '&productid=' + pid;
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send(data);
+            xhr.onload = function () {
+                refresh(that);
+            }
+        }
+    }
+</script>
+@*delete?*@
+<script type="text/javascript">
+    var b = document.getElementsByClassName("del");
+    b.click(confirmDelete);
+</script>

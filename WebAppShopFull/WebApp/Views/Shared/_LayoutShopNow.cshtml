@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="/css/style.css" rel="stylesheet" />
+    <link href="/css/all.css" rel="stylesheet" />
+    <script src="/js/js.js"></script>
+</head>
+<body>
+    <div class="infor">
+        <span style="font-size: 15px; color: pink;">
+            <i class="fas fa-phone-volume"></i>
+            <label>(+84)3 727 040 74</label>
+        </span>
+        <span style="font-size: 15px; color: pink;">
+            <i class="fas fa-envelope"></i>
+            <label>Admin@gmail.com</label>
+        </span>
+    </div>
+    <div class="title">
+        <div class="container">
+            <div class="container_title">
+                <a href="/"><h2>SportsShop</h2></a>
+            </div>
+            <div class="container_search">
+                <form action="/home/search">
+                    <div class="icon_search">
+                        <input type="search" name="q" value="@Context.Request.Query["q"]" />
+                    </div>
+                    <div class="container_search_button">
+                        <button>Search</button>
+                    </div>
+                </form>
+                <div class="clear"></div>
+            </div>
+            <div class="container_icon">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a href="/auth/signout">LogOut</a>
+                    <a href="/auth/">Welcome: @User.Identity.Name</a>
+                }
+                else
+                {
+                    <a href="/auth/signup">
+                        @*<span style="font-size: 40px; color: black;">
+                                <i class="fas fa-user-plus"></i>
+                            </span>*@
+                        SignUp
+                    </a>
+                    <a href="/auth/signin">
+                        Login
+                    </a>
+                }
+                <a href="/cart">
+                    <span style="font-size: 25px; color: pink;">
+                        <i class="fas fa-cart-plus"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3" style="margin-top: 100px;">
+            <form action="/home/searchadvance">
+                <table>
+                    <tr>
+                        <td>Category</td>
+                        <td>
+                            <select  style="width:100%" name="cid" asp-items="@ViewBag.selectcategories">
+                                <option value="@Context.Request.Query["cid"]">--Select Category--</option>
+                            </select> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                        <td>
+                            <input type="number" name="price" value="@Context.Request.Query["price"]" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td>
+                            <input type="text" name="name" value="@Context.Request.Query["name"]" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button>Search</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="col-9">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>
